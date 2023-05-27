@@ -24,3 +24,23 @@ print("Welcome to Treasure Island.")
 print("Your mission is to find the treasure.") 
 #Write your code below this line 👇
 
+print("You're at a cross road. Where do you want to go? Type 'left' or 'right'")
+direction = input().lower()
+if direction == "left":
+    print("You've come to a lake. There is an island in the middle of the lake. Type 'wait' to wait for a boat. Type 'swim' to swim across.")
+    action = input().lower()
+    if action == "wait":
+        print("You arrive at the island unharmed. There is a house with 3 doors. One red, one yellow and one blue. Which colour do you choose?")
+        door = input().lower()
+        if door == "red":
+            print("It's a room full of fire. Game over.")
+        elif door == "yellow":
+            print("You found the treasure! You win!")
+        elif door == "blue":
+            print("You enter a room of beasts. Game over.")
+        else:
+            print("You chose a door that doesn't exist. Game over.")
+    else:
+        print("You got attacked by an angry trout. Game over.")
+else:
+    print("You fell into a hole. Game over.")
