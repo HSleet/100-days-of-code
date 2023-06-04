@@ -1,4 +1,6 @@
+import time
 import art
+
 suits = {
     "Hearts": "♥",
     "Diamonds": "♦",
@@ -91,17 +93,22 @@ class Card:
     
     def __create_card_art(self):
         card_art = art.cards[self.rank_symbol]
-        return card_art.replace("#", self.suit_symbol)
+        card_art = [line.replace("#", self.suit_symbol) for line in card_art]
+        return card_art
       
     def __repr__(self) -> str:
         output = f"{self.rank} of {self.suit}: Value: {self.value}, Number: {self.number}, Rank Symbol: {self.rank_symbol}, Suit: {self.suit_symbol}{self.suit}"
         return output
-        
-      
+    
+    def print_card(self):
+        for i,line in enumerate(self.card_front):
+            print(f"{line}\t{self.card_back[i]}")
 
 if __name__ == "__main__":
     card = Card("Queen", "Hearts")
-    print(card.card_front)
+    for i,line in enumerate(card.card_front):
+        print(f"{line}\t{card.card_back[i]}")
+        time.sleep(0.01)
     print(card)
     print(card.value)
     print(card.number)
